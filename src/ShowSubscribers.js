@@ -1,20 +1,33 @@
 import React, { Component } from 'react';
-import Header from "./Header";
-import "./App.css";
+import Header from "./common/Header";
+import "./ShowSubscribers.css";
+import './common/common.css';
 
-class App extends Component {
+class ShowSubscribers extends Component {
 
-  clickHandler(message){
+  // clickHandler(message){
 
-  }
+  // }
 
-  constructor()
-  {
-    super();
-    this.state = {
-      subscribersListToShow:[]
-    }
-  }
+  // constructor()
+  // {
+  //   super();
+  //   this.state = {
+  //     subscribersListToShow:[]
+  //   }
+  // }
+
+  // componentDidMount(){
+  //   let newSubscriber = {
+  //     id: 1,
+  //     name: 'Abhishek Pandey',
+  //     phone: '8475984759874'
+  //   }
+
+  //   let subscribersList = this.state.subscribersListToShow;
+  //   subscribersList.push(newSubscriber);
+  //   this.setState({subscribersListToShow: subscribersList});
+  // }
 
   render(){
     // let subscribers = [
@@ -51,12 +64,13 @@ class App extends Component {
           </div> */}
 
           {
-            this.state.subscribersListToShow.map(sub => {
+            this.props.subscribersList.map(sub => {
             return <div key={sub.id} className="grid-container">
               <span className="grid-item">{sub.name}</span>
               <span className="grid-item">{sub.phone}</span>
               <span className="grid-item action-btn-container">
-                  <button className="custom-btn delete-btn" onClick={this.clickHandler.bind(this, "Delete Clicked")}>Delete</button>
+                  <button className="custom-btn delete-btn">Delete</button>
+                  {/* onClick={this.clickHandler.bind(this, "Delete Clicked")} */}
               </span>
             </div>
             })
@@ -68,4 +82,4 @@ class App extends Component {
   }
 }
 
-export default App;
+export default ShowSubscribers;
