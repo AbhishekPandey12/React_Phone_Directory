@@ -8,19 +8,27 @@ class App extends Component {
 
   }
 
+  constructor()
+  {
+    super();
+    this.state = {
+      subscribersListToShow:[]
+    }
+  }
+
   render(){
-    let subscribers = [
-      {
-        id: 1,
-        name: 'Abhishek',
-        phone: '8888888888'
-      },
-      {
-        id: 2,
-        name: 'Adarsh',
-        phone: '8888888881'
-      }
-    ];
+    // let subscribers = [
+    //   {
+    //     id: 1,
+    //     name: 'Abhishek',
+    //     phone: '8888888888'
+    //   },
+    //   {
+    //     id: 2,
+    //     name: 'Adarsh',
+    //     phone: '8888888881'
+    //   }
+    // ];
     return (
       <div>
         <Header heading="Phone Directory" />
@@ -43,7 +51,7 @@ class App extends Component {
           </div> */}
 
           {
-            subscribers.map(sub => {
+            this.state.subscribersListToShow.map(sub => {
             return <div key={sub.id} className="grid-container">
               <span className="grid-item">{sub.name}</span>
               <span className="grid-item">{sub.phone}</span>
