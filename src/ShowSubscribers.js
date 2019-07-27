@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Header from "./common/Header";
 import "./ShowSubscribers.css";
 import './common/common.css';
+import { Link } from "react-router-dom";
 
 class ShowSubscribers extends Component {
 
@@ -29,7 +30,7 @@ class ShowSubscribers extends Component {
   //   this.setState({subscribersListToShow: subscribersList});
   // }
 
-  render(){
+  render() {
     // let subscribers = [
     //   {
     //     id: 1,
@@ -43,10 +44,12 @@ class ShowSubscribers extends Component {
     //   }
     // ];
     return (
-      <div>
+      <div className="component-container">
         <Header heading="Phone Directory" />
         <div className="component-body-container">
-          <button className="custom-btn add-btn">Add</button>
+          <Link to="/add">
+            <button className="custom-btn add-btn">Add</button>
+          </Link>
 
           <div className="grid-container heading-container">
             <span className="grid-item name-heading">Name</span>
@@ -65,14 +68,14 @@ class ShowSubscribers extends Component {
 
           {
             this.props.subscribersList.map(sub => {
-            return <div key={sub.id} className="grid-container">
-              <span className="grid-item">{sub.name}</span>
-              <span className="grid-item">{sub.phone}</span>
-              <span className="grid-item action-btn-container">
+              return <div key={sub.id} className="grid-container">
+                <span className="grid-item">{sub.name}</span>
+                <span className="grid-item">{sub.phone}</span>
+                <span className="grid-item action-btn-container">
                   <button className="custom-btn delete-btn">Delete</button>
                   {/* onClick={this.clickHandler.bind(this, "Delete Clicked")} */}
-              </span>
-            </div>
+                </span>
+              </div>
             })
           }
 
